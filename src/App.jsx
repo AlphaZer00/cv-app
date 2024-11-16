@@ -11,7 +11,9 @@ function App() {
         email: "",
         phone: "",
     });
-    const [education, setEducation] = useState([]);
+    const [education, setEducation] = useState([
+        { schoolName: "", major: "", graduationDate: "" },
+    ]);
     const [experience, setExperience] = useState([
         {
             companyName: "",
@@ -25,12 +27,15 @@ function App() {
     return (
         <>
             <GeneralInfo></GeneralInfo>
-            <Education></Education>
+            <Education
+                education={education}
+                setEducation={setEducation}
+            ></Education>
             <Experience
                 experience={experience}
                 setExperience={setExperience}
             ></Experience>
-            <Preview experience={experience}></Preview>
+            <Preview experience={experience} education={education}></Preview>
         </>
     );
 }
