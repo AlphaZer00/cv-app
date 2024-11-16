@@ -1,7 +1,7 @@
 export default function Preview({experience}) {
     return (
         <div className="cv-preview">
-        <h2>Experience Preview</h2>
+        <h2>Experience</h2>
   
         {experience.length === 0 ? (
           <p>No experience added yet.</p>

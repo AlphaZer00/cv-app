@@ -31,45 +31,71 @@ export default function Experience({ experience, setExperience }) {
     return (
         <div className="experience-form">
             <h3>Experience</h3>
-
             {experience.map((item, index) => (
                 <div key={index} className="experience-entry">
-                    <input
-                        type="text"
-                        name="companyName"
-                        value={item.companyName}
-                        placeholder="Company Name"
-                        onChange={(e) => handleChange(e, index)}
-                    />
-                    <input
-                        type="text"
-                        name="positionTitle"
-                        value={item.positionTitle}
-                        placeholder="Position Title"
-                        onChange={(e) => handleChange(e, index)}
-                    />
-                    <textarea
-                        name="responsibilities"
-                        value={item.responsibilities}
-                        placeholder="Responsibilities"
-                        onChange={(e) => handleChange(e, index)}
-                    />
-                    <input
-                        type="date"
-                        name="dateFrom"
-                        value={item.dateFrom}
-                        onChange={(e) => handleChange(e, index)}
-                    />
-                    <input
-                        type="date"
-                        name="dateUntil"
-                        value={item.dateUntil}
-                        onChange={(e) => handleChange(e, index)}
-                    />
+                    <div className="ex-company">
+                        <label htmlFor={`companyName-${index}`}>
+                            Company Name
+                        </label>
+                        <input
+                            type="text"
+                            id={`companyName-${index}`}
+                            name="companyName"
+                            value={item.companyName}
+                            onChange={(e) => handleChange(e, index)}
+                        />
+                    </div>
+
+                    <div className="ex-position">
+                        <label htmlFor={`positionTitle-${index}`}>
+                            Position Title
+                        </label>
+                        <input
+                            type="text"
+                            id={`positionTitle-${index}`}
+                            name="positionTitle"
+                            value={item.positionTitle}
+                            onChange={(e) => handleChange(e, index)}
+                        />
+                    </div>
+
+                    <div className="ex-responsibilities">
+                        <label htmlFor={`responsibilities-${index}`}>
+                            Responsibilities
+                        </label>
+                        <textarea
+                            id={`responsibilities-${index}`}
+                            name="responsibilities"
+                            value={item.responsibilities}
+                            onChange={(e) => handleChange(e, index)}
+                        />
+                    </div>
+
+                    <div className="ex-date-from">
+                        <label htmlFor={`dateFrom-${index}`}>Start Date</label>
+                        <input
+                            type="text"
+                            id={`dateFrom-${index}`}
+                            name="dateFrom"
+                            value={item.dateFrom}
+                            onChange={(e) => handleChange(e, index)}
+                        />
+                    </div>
+
+                    <div className="ex-date-until">
+                        <label htmlFor={`dateUntil-${index}`}>End Date</label>
+                        <input
+                            type="text"
+                            id={`dateUntil-${index}`}
+                            name="dateUntil"
+                            value={item.dateUntil}
+                            onChange={(e) => handleChange(e, index)}
+                        />
+                    </div>
                 </div>
             ))}
 
-            <button onClick={handleAddExperience}> 
+            <button onClick={handleAddExperience}>
                 Add Another Experience
             </button>
         </div>
