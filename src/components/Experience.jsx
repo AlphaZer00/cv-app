@@ -1,90 +1,77 @@
 import { useState } from "react";
 
 export default function Experience({ experience, setExperience }) {
-    const [newExperience, setNewExperience] = useState({
-        companyName: "",
-        positionTitle: "",
-        responsibilities: "",
-        dateFrom: "",
-        dateUntil: "",
-    });
+    // Handle changes in input fields
+    const handleChange = (e, index) => {
+        const { name, value } = e.target;
 
+        const updatedExperience = experience.map((item, i) =>
+            i === index ? { ...item, [name]: value } : item
+        );
+
+        setExperience(updatedExperience);
+    };
+
+    // Adds a new experience form field
     const handleAddExperience = () => {
-        setExperience((prevExperience) => [...prevExperience, newExperience]);
-
-        setNewExperience({
+        const newExperienceEntry = {
             companyName: "",
             positionTitle: "",
             responsibilities: "",
             dateFrom: "",
             dateUntil: "",
-        });
-    };
+        };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        setNewExperience((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
+        setExperience((prevExperience) => [
+            ...prevExperience,
+            newExperienceEntry,
+        ]);
     };
 
     return (
         <div className="experience-form">
-            <div className="ex-position">
-                <label htmlFor="position">Position</label>
-                <input
-                    type="text"
-                    id="position"
-                    name="positionTitle"
-                    value={newExperience.positionTitle}
-                    onChange={handleChange}
-                />
-            </div>
+            <h3>Experience</h3>
 
-            <div className="ex-company">
-                <label htmlFor="company">Company</label>
-                <input
-                    type="text"
-                    id="company"
-                    name="companyName"
-                    value={newExperience.companyName}
-                    onChange={handleChange}
-                />
-            </div>
+            {experience.map((item, index) => (
+                <div key={index} className="experience-entry">
+                    <input
+                        type="text"
+                        name="companyName"
+                        value={item.companyName}
+                        placeholder="Company Name"
+                        onChange={(e) => handleChange(e, index)}
+                    />
+                    <input
+                        type="text"
+                        name="positionTitle"
+                        value={item.positionTitle}
+                        placeholder="Position Title"
+                        onChange={(e) => handleChange(e, index)}
+                    />
+                    <textarea
+                        name="responsibilities"
+                        value={item.responsibilities}
+                        placeholder="Responsibilities"
+                        onChange={(e) => handleChange(e, index)}
+                    />
+                    <input
+                        type="date"
+                        name="dateFrom"
+                        value={item.dateFrom}
+                        onChange={(e) => handleChange(e, index)}
+                    />
+                    <input
+                        type="date"
+                        name="dateUntil"
+                        value={item.dateUntil}
+                        onChange={(e) => handleChange(e, index)}
+                    />
+                </div>
+            ))}
 
-            <div className="ex-responsibilities">
-                <label htmlFor="responsibilities">Responsibilities</label>
-                <textarea
-                    id="responsibilities"
-                    name="responsibilities"
-                    value={newExperience.responsibilities}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className="ex-start-date">
-                <label htmlFor="experienceStartDate">Start Date</label>
-                <input
-                    type="date"
-                    id="experienceStartDate"
-                    name="dateFrom"
-                    value={newExperience.dateFrom}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className="ex-end-date">
-                <label htmlFor="experienceEndDate">End Date</label>
-                <input
-                    type="date"
-                    id="experienceEndDate"
-                    name="dateUntil"
-                    value={newExperience.dateUntil}
-                    onChange={handleChange}
-                />
-            </div>
+            <button onClick={handleAddExperience}> 
+                Add Another Experience
+            </button>
         </div>
     );
 }
