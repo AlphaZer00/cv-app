@@ -6,11 +6,9 @@ import Experience from "./components/Experience";
 import Preview from "./components/Preview";
 
 function App() {
-    const [generalInfo, setGeneralInfo] = useState({
-        name: "",
-        email: "",
-        phone: "",
-    });
+    const [generalInfo, setGeneralInfo] = useState([
+        { name: "", email: "", phone: "" },
+    ]);
     const [education, setEducation] = useState([
         { schoolName: "", major: "", graduationDate: "" },
     ]);
@@ -26,7 +24,10 @@ function App() {
 
     return (
         <>
-            <GeneralInfo></GeneralInfo>
+            <GeneralInfo
+                generalInfo={generalInfo}
+                setGeneralInfo={setGeneralInfo}
+            ></GeneralInfo>
             <Education
                 education={education}
                 setEducation={setEducation}
@@ -35,7 +36,11 @@ function App() {
                 experience={experience}
                 setExperience={setExperience}
             ></Experience>
-            <Preview experience={experience} education={education}></Preview>
+            <Preview
+                generalInfo={generalInfo}
+                education={education}
+                experience={experience}
+            ></Preview>
         </>
     );
 }

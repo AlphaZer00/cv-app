@@ -1,18 +1,47 @@
-export default function GeneralInfo() {
+export default function GeneralInfo({ generalInfo, setGeneralInfo }) {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        // Update the general info entry
+        const updatedGeneralInfo = { ...generalInfo[0], [name]: value };
+
+        // Update state with new general info
+        setGeneralInfo([updatedGeneralInfo]);
+    };
+
     return (
-        <>
+        <div className="general-info-form">
+            <h3>General Information</h3>
             <div className="gi-name">
                 <label htmlFor="name">Name</label>
-                <input type="text" id="name"></input>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={generalInfo[0]?.name || ""}
+                    onChange={handleChange}
+                ></input>
             </div>
             <div className="gi-email">
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email"></input>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={generalInfo[0]?.email || ""}
+                    onChange={handleChange}
+                ></input>
             </div>
             <div className="gi-phone">
                 <label htmlFor="phone">Phone Number</label>
-                <input type="tel" id="phone"></input>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={generalInfo[0]?.phone || ""}
+                    onChange={handleChange}
+                ></input>
             </div>
-        </>
-    )
+        </div>
+    );
 }

@@ -1,6 +1,16 @@
-export default function Preview({ experience, education }) {
+export default function Preview({ generalInfo, experience, education }) {
     return (
         <div className="cv-preview">
+            <div className="preview-general-info">
+                {generalInfo.length > 0 && (
+                    <div className="general-info-entry">
+                        <p>{generalInfo[0].name}</p>
+                        <p>{generalInfo[0].email}</p>
+                        <p>{generalInfo[0].phone}</p>
+                    </div>
+                )}
+            </div>
+
             <div className="preview-education">
                 <h3>Education</h3>
                 {education.length > 0 && (
