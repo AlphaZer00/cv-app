@@ -27,7 +27,7 @@ export default function Education({ education, setEducation }) {
             {isEditing ? (
                 <div className="education-form">
                     <div className="ed-name">
-                        <label htmlFor="educationName">School Name</label>
+                        <label htmlFor="educationName">School Name: </label>
                         <input
                             type="text"
                             id="educationName"
@@ -37,7 +37,7 @@ export default function Education({ education, setEducation }) {
                         />
                     </div>
                     <div className="ed-major">
-                        <label htmlFor="educationMajor">Major/Program</label>
+                        <label htmlFor="educationMajor">Major/Program: </label>
                         <input
                             type="text"
                             id="educationMajor"
@@ -47,7 +47,7 @@ export default function Education({ education, setEducation }) {
                         />
                     </div>
                     <div className="ed-date">
-                        <label htmlFor="educationDate">Graduation Date</label>
+                        <label htmlFor="educationDate">Graduation Date: </label>
                         <input
                             type="text"
                             id="educationDate"
