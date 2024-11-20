@@ -58,7 +58,7 @@ export default function GeneralInfo({ generalInfo, setGeneralInfo }) {
                     </div>
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
-            ) : ( 
+            ) : (
                 // If view mode is on, hide the form fields and only display the values
                 <div className="general-info-display">
                     <p>Name: {generalInfo[0].name}</p>
