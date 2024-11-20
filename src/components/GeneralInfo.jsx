@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/shared.css";
 
 export default function GeneralInfo({ generalInfo, setGeneralInfo }) {
     // Set default state of isEditing to true, this controls conditional rendering of edit and view modes
@@ -25,7 +26,9 @@ export default function GeneralInfo({ generalInfo, setGeneralInfo }) {
             <h3>General Information</h3>
             {/* If editing mode is ON for this section, render the form */}
             {isEditing ? (
-                <div className="general-info-form">
+                <div
+                    className={`general-info-form ${isEditing ? "active" : ""}`}
+                >
                     <div className="gi-name">
                         <label htmlFor="name">Name: </label>
                         <input
@@ -60,7 +63,11 @@ export default function GeneralInfo({ generalInfo, setGeneralInfo }) {
                 </div>
             ) : (
                 // If view mode is on, hide the form fields and only display the values
-                <div className="general-info-display">
+                <div
+                    className={`general-info-display display-mode ${
+                        !isEditing ? "active" : ""
+                    }`}
+                >
                     <p>Name: {generalInfo[0].name}</p>
                     <p>Email: {generalInfo[0].email}</p>
                     <p>Phone: {generalInfo[0].phone}</p>

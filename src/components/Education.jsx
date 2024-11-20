@@ -60,7 +60,7 @@ export default function Education({ education, setEducation }) {
                 </div>
             ) : (
                 // If view mode is on, hide the form fields and only display the values
-                <div className="education-display">
+                <div className="education-display display-mode">
                     <p>School: {education[0].schoolName}</p>
                     <p>Major: {education[0].major}</p>
                     <p>Graduation Date: {education[0].graduationDate}</p>

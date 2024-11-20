@@ -40,8 +40,11 @@ export default function Experience({ experience, setExperience }) {
                 <div className="experience-form">
                     {experience.map((exp, index) => (
                         <div key={index} className="experience-entry">
+                            <h4>Experience {index + 1}</h4>
                             <div className="ex-company">
-                                <label htmlFor={`companyName-${index}`}>Company Name: </label>
+                                <label htmlFor={`companyName-${index}`}>
+                                    Company Name:{" "}
+                                </label>
                                 <input
                                     type="text"
                                     id={`companyName-${index}`}
@@ -51,7 +54,9 @@ export default function Experience({ experience, setExperience }) {
                                 />
                             </div>
                             <div className="ex-position">
-                                <label htmlFor={`positionTitle-${index}`}>Position Title: </label>
+                                <label htmlFor={`positionTitle-${index}`}>
+                                    Position Title:{" "}
+                                </label>
                                 <input
                                     type="text"
                                     id={`positionTitle-${index}`}
@@ -61,7 +66,9 @@ export default function Experience({ experience, setExperience }) {
                                 />
                             </div>
                             <div className="ex-responsibilities">
-                                <label htmlFor={`responsibilities-${index}`}>Responsibilities: </label>
+                                <label htmlFor={`responsibilities-${index}`}>
+                                    Responsibilities:{" "}
+                                </label>
                                 <input
                                     type="text"
                                     id={`responsibilities-${index}`}
@@ -71,7 +78,9 @@ export default function Experience({ experience, setExperience }) {
                                 />
                             </div>
                             <div className="ex-date-from">
-                                <label htmlFor={`dateFrom-${index}`}>From: </label>
+                                <label htmlFor={`dateFrom-${index}`}>
+                                    From:{" "}
+                                </label>
                                 <input
                                     type="text"
                                     id={`dateFrom-${index}`}
@@ -81,7 +90,9 @@ export default function Experience({ experience, setExperience }) {
                                 />
                             </div>
                             <div className="ex-date-until">
-                                <label htmlFor={`dateUntil-${index}`}>Until: </label>
+                                <label htmlFor={`dateUntil-${index}`}>
+                                    Until:{" "}
+                                </label>
                                 <input
                                     type="text"
                                     id={`dateUntil-${index}`}
@@ -92,15 +103,22 @@ export default function Experience({ experience, setExperience }) {
                             </div>
                         </div>
                     ))}
-                    <button onClick={handleAddExperience}>Add Experience</button>
+                    <button onClick={handleAddExperience}>
+                        Add Experience
+                    </button>
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
             ) : (
-                <div className="experience-display">
+                <div className="experience-display display-mode">
                     {experience.map((exp, index) => (
                         <div key={index} className="experience-item">
-                            <h4>{exp.positionTitle} at {exp.companyName}</h4>
-                            <p><strong>Responsibilities:</strong> {exp.responsibilities}</p>
+                            <h4>
+                                {exp.positionTitle} at {exp.companyName}
+                            </h4>
+                            <p>
+                                <strong>Responsibilities:</strong>{" "}
+                                {exp.responsibilities}
+                            </p>
                             <p>
                                 {exp.dateFrom} - {exp.dateUntil}
                             </p>
