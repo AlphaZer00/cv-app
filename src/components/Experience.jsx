@@ -33,6 +33,11 @@ export default function Experience({ experience, setExperience }) {
         ]);
     };
 
+    const handleRemoveExperience = (index) => {
+        const updatedExperience = experience.filter((_, i) => i !== index);
+        setExperience(updatedExperience);
+    };
+
     return (
         <div className="experience-section">
             <h3>Experience</h3>
@@ -69,8 +74,7 @@ export default function Experience({ experience, setExperience }) {
                                 <label htmlFor={`responsibilities-${index}`}>
                                     Responsibilities:{" "}
                                 </label>
-                                <input
-                                    type="text"
+                                <textarea
                                     id={`responsibilities-${index}`}
                                     name="responsibilities"
                                     value={exp.responsibilities || ""}
@@ -101,12 +105,22 @@ export default function Experience({ experience, setExperience }) {
                                     onChange={(e) => handleChange(e, index)}
                                 />
                             </div>
+                            <button
+                                type="button"
+                                onClick={() => handleRemoveExperience(index)}
+                                disabled={experience.length === 1}
+                            >
+                                Remove Experience
+                            </button>
                         </div>
                     ))}
-                    <button onClick={handleAddExperience}>
+
+                    <button type="button" onClick={handleAddExperience}>
                         Add Experience
                     </button>
-                    <button onClick={handleSubmit}>Submit</button>
+                    <button type="button" onClick={handleSubmit}>
+                        Submit
+                    </button>
                 </div>
             ) : (
                 <div className="experience-display display-mode">
