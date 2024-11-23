@@ -22,6 +22,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px; /* Adds spacing between form elements */
+    max-width: 600px;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap: wrap;
 }
 
 label {
@@ -34,9 +39,39 @@ input {
     padding: 10px;
     font-size: 14px;
     width: 100%;
+    max-width: 600px; /* Prevent inputs from expanding outside the form */
     border: 1px solid #ccc;
     border-radius: 4px;
+    overflow: hidden; /* Prevents the input from expanding */
+    white-space: nowrap; /* Prevents text wrapping */
+    text-overflow: ellipsis;
 }
+
+textarea {
+    padding: 10px;
+    font-size: 14px;
+    max-width: 600px; /* Prevents overflow */
+    width: 100%;
+    height: 80px; /* Adjust based on required height */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allows user to adjust height */
+    overflow-wrap: break-word; /* Ensures long words break to next line */
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+/* Margin underneath bottom input for submit button spacing*/
+.ex-date-until, .ed-date, .gi-phone {
+    margin-bottom: 10px;
+}
+
+.general-info-form>div, .education-form>div, .experience-form>div {
+    display: flex;
+    flex-direction: column; /* Stack label and textarea vertically */
+    align-items: center;
+}
+
 
 /* Button Styling */
 button {
@@ -56,6 +91,7 @@ button:hover {
 button[type="button"] {
     background-color: #008CBA;
     color: white;
+    margin: 0px 5px;
 }
 
 button[type="button"]:hover {
@@ -71,6 +107,10 @@ button[type="button"]:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+}
+
+.experience-entry {
+    margin-bottom: 10px;
 }
 
 .general-info-section p,
@@ -109,4 +149,107 @@ button[type="button"]:hover {
 /* Button Positioning in View Mode */
 .display-mode button {
     margin-top: 10px;
+}
+
+/* Preview Container */
+.cv-preview {
+    color: black;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* General Info */
+.preview-general-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.preview-general-info .name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.preview-general-info .contact-info {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    text-align: left;
+}
+
+/* Education Section */
+.preview-education-entry {
+    margin-bottom: 15px;
+}
+
+.preview-education-entry h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.preview-education-entry p {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Experience Section */
+.preview-experience-entry {
+    margin-bottom: 20px;
+}
+
+.preview-experience-entry h3 {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.preview-experience-entry .date-range {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.preview-experience-entry .responsibilities-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 5px 0;
+}
+
+.preview-experience-entry .responsibilities-list li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* General Styling */
+p {
+    margin: 5px 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
