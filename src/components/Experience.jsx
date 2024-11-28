@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Editor from "react-simple-wysiwyg";
 
 export default function Experience({ experience, setExperience }) {
     const [isEditing, setIsEditing] = useState(experience.map(() => true)); // Array to track editing state for each experience
@@ -74,7 +75,7 @@ export default function Experience({ experience, setExperience }) {
                                 <label htmlFor={`responsibilities-${index}`}>
                                     Responsibilities:{" "}
                                 </label>
-                                <textarea
+                                <Editor
                                     id={`responsibilities-${index}`}
                                     name="responsibilities"
                                     value={exp.responsibilities || ""}
@@ -107,6 +108,7 @@ export default function Experience({ experience, setExperience }) {
                             </div>
                             <button
                                 type="button"
+                                className="remove-ex-button"
                                 onClick={() => handleRemoveExperience(index)}
                                 disabled={experience.length === 1}
                             >
