@@ -19,7 +19,8 @@ export default function Preview({ generalInfo, experience, education }) {
                         <div key={index} className="preview-education-entry">
                             <h3>{edu.schoolName}</h3>
                             <p>
-                                {edu.major} <span>Graduation: {edu.graduationDate}</span>
+                                {edu.major}{" "}
+                                <span>Graduation: {edu.graduationDate}</span>
                             </p>
                         </div>
                     ))
@@ -35,12 +36,16 @@ export default function Preview({ generalInfo, experience, education }) {
                     experience.map((exp, index) => (
                         <div key={index} className="preview-experience-entry">
                             <h3>
-                                {exp.positionTitle}{" "}
-                                <span>@ {exp.companyName}</span>
+                                <div>
+                                    {exp.positionTitle}{" "}
+                                    <span>@ {exp.companyName}</span>
+                                </div>
+                                <div>
+                                    <p className="date-range">
+                                        {exp.dateFrom} - {exp.dateUntil}
+                                    </p>
+                                </div>
                             </h3>
-                            <p className="date-range">
-                                {exp.dateFrom} - {exp.dateUntil}
-                            </p>
                             <p className="responsibilities">
                                 {exp.responsibilities}
                             </p>
