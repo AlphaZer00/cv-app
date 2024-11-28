@@ -1,3 +1,5 @@
+import DOMPurify from "dompurify";
+
 export default function Preview({ generalInfo, experience, education }) {
     return (
         <div className="cv-preview">
@@ -46,9 +48,12 @@ export default function Preview({ generalInfo, experience, education }) {
                                     </p>
                                 </div>
                             </h3>
-                            <p className="responsibilities">
-                                {exp.responsibilities}
-                            </p>
+                            <p
+                                className="responsibilities"
+                                dangerouslySetInnerHTML={{
+                                    __html: DOMPurify.sanitize(exp.responsibilities),
+                                }}
+                            ></p>
                         </div>
                     ))
                 ) : (
