@@ -1,3 +1,4 @@
+
 /* General Reset */
 * {
     margin: 0;
@@ -18,15 +19,24 @@ h3, h4 {
 }
 
 /* Form Styling */
-form {
+.education-form, .general-info-form, .experience-form {
     display: flex;
     flex-direction: column;
     gap: 15px; /* Adds spacing between form elements */
+    width: 100%;
     max-width: 600px;
     flex-wrap: wrap;
     align-items: center;
     overflow: hidden;
     flex-wrap: wrap;
+}
+
+.experience-entry {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 label {
@@ -37,9 +47,11 @@ label {
 
 input {
     padding: 10px;
+    box-sizing: border-box;
     font-size: 14px;
     width: 100%;
-    max-width: 600px; /* Prevent inputs from expanding outside the form */
+    max-width: 90%; /* Prevent inputs from expanding outside the form */
+    min-width: 200px;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow: hidden; /* Prevents the input from expanding */
@@ -50,12 +62,13 @@ input {
 textarea {
     padding: 10px;
     font-size: 14px;
-    max-width: 600px; /* Prevents overflow */
     width: 100%;
+    max-width: 90%; /* Prevent inputs from expanding outside the form */
+    min-width: 200px;
     height: 80px; /* Adjust based on required height */
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical; /* Allows user to adjust height */
+    resize: none; /* Allows user to adjust height */
     overflow-wrap: break-word; /* Ensures long words break to next line */
     word-wrap: break-word; 
     overflow-wrap: break-word;
@@ -66,9 +79,20 @@ textarea {
     margin-bottom: 10px;
 }
 
-.general-info-form>div, .education-form>div, .experience-form>div {
+.general-info-form>div, .education-form>div, .experience-entry>div {
     display: flex;
     flex-direction: column; /* Stack label and textarea vertically */
+    align-items: center;
+    width: 100%;
+}
+
+.general-info-form>div>* .education-form>div>*, .experience-entry>div>* {
+    min-width: 100%;
+}
+
+.general-info-section, .education-section, .experience-section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -151,7 +175,10 @@ button[type="button"]:hover {
     margin-top: 10px;
 }
 
-/* Preview Container */
+/*\\\\\\\\\\\\\\\\\*/
+/* PREVIEW SECTION */
+/*\\\\\\\\\\\\\\\\\*/
+
 .cv-preview {
     color: black;
     font-family: Arial, sans-serif;
@@ -214,12 +241,29 @@ h2 {
 }
 
 /* Experience Section */
+.cv-preview {
+    color: black;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px auto;
+    max-width: 800px; /* Adjust the max width based on design */
+    width: 100%; /* Responsive */
+    aspect-ratio: 1 / 1.414; /* Locks the A4 aspect ratio */
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent content overflow */
+}
+
 .preview-experience-entry {
     margin-bottom: 20px;
 }
 
-.preview-experience-entry h3 {
-    font-size: 18px;
+.cv-preview h3, .cv-preview h2 {
+    font-size: 14px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
@@ -227,7 +271,7 @@ h2 {
 }
 
 .preview-experience-entry .date-range {
-    font-size: 14px;
+    font-size: 12px;
     color: #777;
     margin-bottom: 5px;
 }
@@ -240,8 +284,21 @@ h2 {
 
 .preview-experience-entry .responsibilities-list li {
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 12px;
     color: #555;
+}
+
+.date-range {
+    text-align: right;
+}
+
+.responsibilities {
+    text-align: left;
+}
+
+/* Rich Text Editor */
+.rsw-editor {
+    max-width: 80%;
 }
 
 /* General Styling */
@@ -252,4 +309,10 @@ p {
 ul {
     margin: 0;
     padding: 0;
+}
+
+@media (max-width: 600px) {
+    input, textarea {
+        font-size: 12px; /* Adjust size for smaller viewports */
+    }
 }
